@@ -1,4 +1,7 @@
-from tfci import compress
+from tfci import compress, decompress
+import glob
 
-compress('hific-lo', "./images/LR/0801x4.png", "./images/tfc_comp/0801x4.tfci")
-decompress("./images/tfc_comp/0801x4.tfci", "./images/tfc_decomp/0801x4.png")
+test_img_folder = 'images/LR/*'
+for path in glob.glob(test_img_folder):
+    compress('hific-lo', path, path.replace("LR", "tfc_comp").replace("png","tfci"))
+    decompress(path.replace("LR","tfc_comp").replace("png","tfci"), path.replace("LR","tfc_decomp"))
