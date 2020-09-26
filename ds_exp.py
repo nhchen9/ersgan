@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import torch
 import RRDBNet_arch as arch
-from skimage.metrics import structural_similarity as ssim
+#from skimage.metrics import structural_similarity as ssim
 
 model_path = 'models/RRDB_ESRGAN_x4.pth'  # models/RRDB_ESRGAN_x4.pth OR models/RRDB_PSNR_x4.pth
 #device = torch.device('cuda')  # if you want to run on CPU, change 'cuda' -> cpu
@@ -33,8 +33,6 @@ for path in glob.glob(test_img_folder):
     img = cv2.resize(img, (int(img.shape[1]/ds_factor), int(img.shape[0]/ds_factor)), interpolation = cv2.INTER_AREA)
     cv2.imwrite('images/DS2/{:s}_rlt.png'.format(base), img)
 
-    #LR_cp = cv2.imread('images/LR/{:s}x4.png'.format(base.split('_')[0]), cv2.IMREAD_COLOR)
-    #print(ssim(LR_cp, img, multichannel = True))
     #ds_lr_ssim.append(ssim(LR_cp, img, multichannel = True))
 
     img = img * 1.0 / 255
