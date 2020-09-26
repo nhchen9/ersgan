@@ -1,7 +1,8 @@
 from tfci import compress, decompress
 import glob
 
-test_img_folder = 'images/LR/*'
+test_img_folder = 'images/4kDS/*'
+
 for path in glob.glob(test_img_folder):
-    compress('hific-hi', path, path.replace("LR", "tfc_comp_hi").replace("png","tfci"))
-    decompress(path.replace("LR","tfc_comp_hi").replace("png","tfci"), path.replace("LR","tfc_decomp_hi"))
+    compress("bmshj2018-hyperprior-msssim-8", path, path.replace("4kDS", "tfc_comp_bm").replace("png","tfci"))
+    decompress(path.replace("4kDS","tfc_comp_bm").replace("png","tfci"), path.replace("4kDS","tfc_decomp_bm"))
