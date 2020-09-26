@@ -1,8 +1,8 @@
 from tfci import compress, decompress
 import glob
 
-test_img_folder = 'images/4kDS/*'
+test_img_folder = 'images/DS/*'
 
 for path in glob.glob(test_img_folder):
-    compress("mbt2018-mean-msssim-8", path, path.replace("4kDS", "tfc_comp_mbt").replace("png","tfci"))
-    decompress(path.replace("4kDS","tfc_comp_mbt").replace("png","tfci"), path.replace("4kDS","tfc_decomp_mbt"))
+    compress("bmshj2018-factorized-msssim-8", path, path.replace("DS", "tfc_comp_lr").replace("png","tfci"))
+    decompress(path.replace("DS","tfc_comp_lr").replace("png","tfci"), path.replace("DS","tfc_decomp_lr"))
